@@ -13,32 +13,23 @@ int main()
         {
             cin>>a[i]; 
         }
-        long long min = LLONG_MAX;
-        for(int i = 0; i<n; i++)
-        {
-            if(a[i] < min)
-            { 
-                min = a[i]; 
-            }
-        }
         bool found = 0; 
-        for(long long i = 2 ;i<=min+1; i++)
+        long long  ans = -1; 
+        for(long long x = 2; x <=100; x++)
         {
-            if(__gcd(i, min) == 1)
+            for(int i = 0; i<n; i++)
             {
-                cout<<i<<endl;
-                found = 1; 
-                break;
+                if(__gcd(a[i],x) == 1)
+                {
+                    ans = x; 
+                    found = 1; 
+                    break;
+
+                }
             }
-             
-
+            if(found)break;
         }
-        if(found == 0)
-        {
-            cout<<" -1"<<endl; 
-        }
-        
-
+        cout<<ans<<endl; 
         
     }
     return 0; 
